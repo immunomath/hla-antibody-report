@@ -1,0 +1,107 @@
+{
+  "resourceType": "CodeSystem",
+  "title": "HLA Immunoassay Codes",
+  "url": "https://terminology.nmdp.org/fhir/CodeSystem/hla-immunoassay-codes",
+  "status": "draft",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "email",
+          "value": "dwroe@nmdp.org"
+        }
+      ],
+      "name": "David Wroe"
+    }
+  ],
+  "description": "Codes relating to HLA immunoassay test results and interpretation",
+  "compositional": false,
+  "content": "complete",
+  "concept": [
+    {
+      "code": "Positive",
+      "display": "Positive"
+    },
+    {
+      "code": "Negative",
+      "display": "Negative"
+    },
+    {
+      "code": "Borderline",
+      "display": "Borderline"
+    },
+    {
+      "code": "Undetermined",
+      "display": "Undetermined"
+    },
+    {
+      "code": "1",
+      "display": "1"
+    },
+    {
+      "code": "2",
+      "display": "2"
+    },
+    {
+      "code": "4",
+      "display": "4"
+    },
+    {
+      "code": "8",
+      "display": "8"
+    },
+    {
+      "code": "Transmembrane Antibody",
+      "display": "Transmembrane Antibody"
+    },
+    {
+      "code": "Self Antigen",
+      "display": "Self Antigen"
+    },
+    {
+      "code": "Fluorescence",
+      "display": "Fluorescence"
+    },
+    {
+      "code": "TBD",
+      "display": "To be determined"
+    },
+    {
+      "code": "Extraction",
+      "display": "Extraction",
+      "definition": "Separating the analyte of interest from other components of the sample matrix to minimize interference"
+    },
+    {
+      "code": "Purification",
+      "display": "Purification",
+      "definition": "Isolation of the target analyte to enhance specificity and accuracy of detection"
+    },
+    {
+      "code": "Dilution",
+      "display": "Dilution",
+      "definition": "Adjusting the concentration of the sample to fit within the detection range of the immunoassay"
+    },
+    {
+      "code": "Enzyme Inactivation",
+      "display": "Enzyme Inactivation",
+      "definition": "Removing or inactivating enzymes in the sample that could interfere with the enzymatic reactions"
+    },
+    {
+      "code": "Homogenization and Lysis",
+      "display": "Homogenization and Lysis",
+      "definition": "Breaking down cellular or tissue samples to release the target analyte for detection"
+    },
+    {
+      "code": "Questionable",
+      "display": "Questionable"
+    }
+  ],
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>HLA Immunoassay Codes</h2><tt>https://terminology.nmdp.org/fhir/CodeSystem/hla-immunoassay-codes</tt><p>Codes relating to HLA immunoassay test results and interpretation</p></div>"
+  },
+  "caseSensitive": false,
+  "name": "Hla_immunoassay_codes",
+  "publisher": "NMDP",
+  "count": 18
+}

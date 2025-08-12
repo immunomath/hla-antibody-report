@@ -1,0 +1,306 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "https://fhir.nmdp.org/ig/HlaAntibodyReport/StructureDefinition/hla-immuno-assay-interpretation",
+  "version": "0.0.1",
+  "name": "HLAImmunoassayInterpretation",
+  "title": "HLA Immunoassay Interpretation",
+  "status": "draft",
+  "publisher": "NMDP",
+  "contact": [
+    {
+      "name": "David Wroe",
+      "telecom": [
+        {
+          "system": "email",
+          "value": "dwroe@nmdp.org",
+          "use": "work"
+        }
+      ]
+    }
+  ],
+  "description": "An HLA Antibody Assay Interpretation contains the overall human interpretation of an entire assay.\r\nThis includes which antigens/specificities are determined to be positive or negative.\r\n\r\nComponents of this observation:\r\n------------------------------------\r\ninterpretation-context: “Clinical Interpretation”\r\nreject-assay: Boolean if the assay was rejected or not.\r\nreject-reason: Reason for assay rejection\r\nfailure-code: Failure code generated for assay\r\npositive-specificities: multi-locus HLA GLstring of all loci and alleles considered positive\r\nquestionable-specificities: multi-locus HLA GLstring of all loci and alleles considered questionable\r\nnegative-specificities: multi-locus HLA GLstring of all loci and alleles considered negative",
+  "purpose": "An HLA Antibody Assay Interpretation contains the overall human interpretation of an entire assay.\r\nThis includes which antigens/specificities are determined to be positive or negative.",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Observation",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation.partOf.reference",
+        "path": "Observation.partOf.reference",
+        "label": "HLA Antibody Diagnostic Report Ref",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.focus",
+        "path": "Observation.focus",
+        "max": "0"
+      },
+      {
+        "id": "Observation.encounter",
+        "path": "Observation.encounter",
+        "max": "0"
+      },
+      {
+        "id": "Observation.performer",
+        "path": "Observation.performer",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.performer.reference",
+        "path": "Observation.performer.reference",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.interpretation",
+        "path": "Observation.interpretation",
+        "max": "0"
+      },
+      {
+        "id": "Observation.bodySite",
+        "path": "Observation.bodySite",
+        "max": "0"
+      },
+      {
+        "id": "Observation.specimen",
+        "path": "Observation.specimen",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.specimen.reference",
+        "path": "Observation.specimen.reference",
+        "min": 1
+      },
+      {
+        "id": "Observation.referenceRange",
+        "path": "Observation.referenceRange",
+        "max": "0"
+      },
+      {
+        "id": "Observation.component",
+        "path": "Observation.component",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "$this"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Observation.component:assay-rejected",
+        "path": "Observation.component",
+        "sliceName": "assay-rejected",
+        "label": "assay-rejected",
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:assay-rejected.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "mustSupport": true,
+        "binding": {
+          "strength": "extensible",
+          "valueSet": "http://fhir.nmdp.org/terminology/fhir/CodeSystem/hla-immunoassay-codes"
+        }
+      },
+      {
+        "id": "Observation.component:assay-rejected.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "mustSupport": true,
+        "binding": {
+          "strength": "extensible",
+          "valueSet": "http://fhir.nmdp.org/terminologyfhir/ValueSet//hla-immuno-assay-rejected-reason"
+        }
+      },
+      {
+        "id": "Observation.component:assay-failure-code",
+        "path": "Observation.component",
+        "sliceName": "assay-failure-code",
+        "label": "assay-failure-code",
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:assay-failure-code.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "mustSupport": true,
+        "binding": {
+          "strength": "extensible",
+          "valueSet": "http://fhir.nmdp.org/terminology/fhir/CodeSystem/hla-immunoassay-codes"
+        }
+      },
+      {
+        "id": "Observation.component:assay-failure-code.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "mustSupport": true,
+        "binding": {
+          "strength": "extensible",
+          "valueSet": "http://fhir.nmdp.org/terminology/fhir/ValueSet/hla-immuno-assay-failure-code"
+        }
+      },
+      {
+        "id": "Observation.component:assay-interpretation-context",
+        "path": "Observation.component",
+        "sliceName": "assay-interpretation-context",
+        "label": "assay-interpretation-context",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:assay-interpretation-context.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "max": "0",
+        "mustSupport": false
+      },
+      {
+        "id": "Observation.component:assay-interpretation-context.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "max": "0",
+        "mustSupport": false
+      },
+      {
+        "id": "Observation.component:assay-interpretation-context.code.text",
+        "path": "Observation.component.code.text",
+        "min": 1,
+        "fixedString": "Clinical Interpretation",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:assay-interpretation-negative-specificities",
+        "path": "Observation.component",
+        "sliceName": "assay-interpretation-negative-specificities",
+        "label": "Negative Specificities",
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:assay-interpretation-negative-specificities.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "mustSupport": true,
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://fhir.nmdp.org/terminology/fhir/CodeSystem/hla-immunoassay-codes"
+        }
+      },
+      {
+        "id": "Observation.component:assay-interpretation-negative-specificities.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "label": "Specificity",
+        "min": 1,
+        "fixedCode": "Negative",
+        "mustSupport": true,
+        "binding": {
+          "strength": "extensible",
+          "valueSet": "http://fhir.nmdp.org/terminology/fhir/ValueSet/hla-immuno-assay-interpretation-specificity"
+        }
+      },
+      {
+        "id": "Observation.component:assay-interpretation-negative-specificities.value[x]",
+        "path": "Observation.component.value[x]",
+        "label": "Negative Specificities",
+        "min": 1,
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Observation.component:assay-interpretation-positive-specificities",
+        "path": "Observation.component",
+        "sliceName": "assay-interpretation-positive-specificities",
+        "max": "1"
+      },
+      {
+        "id": "Observation.component:assay-interpretation-positive-specificities.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "mustSupport": true,
+        "binding": {
+          "strength": "extensible",
+          "valueSet": "http://fhir.nmdp.org/terminology/fhir/CodeSystem/hla-immunoassay-codes"
+        }
+      },
+      {
+        "id": "Observation.component:assay-interpretation-positive-specificities.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "label": "Specificity",
+        "min": 1,
+        "fixedCode": "Positivie",
+        "mustSupport": true,
+        "binding": {
+          "strength": "extensible",
+          "valueSet": "http://fhir.nmdp.org/terminology/fhir/ValueSet/hla-immunoassay-interpretation-specificity"
+        }
+      },
+      {
+        "id": "Observation.component:assay-interpretation-positive-specificities.value[x]",
+        "path": "Observation.component.value[x]",
+        "label": "Positive Specificities",
+        "min": 1,
+        "type": [
+          {
+            "code": "string"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:assay-interpretation-questionable-specificities",
+        "path": "Observation.component",
+        "sliceName": "assay-interpretation-questionable-specificities"
+      },
+      {
+        "id": "Observation.component:assay-interpretation-questionable-specificities.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "mustSupport": true,
+        "binding": {
+          "strength": "extensible",
+          "valueSet": "http://fhir.nmdp.org/terminology/fhir/CodeSystem/hla-immunoassay-codes"
+        }
+      },
+      {
+        "id": "Observation.component:assay-interpretation-questionable-specificities.code.coding.version",
+        "path": "Observation.component.code.coding.version",
+        "mustSupport": false
+      },
+      {
+        "id": "Observation.component:assay-interpretation-questionable-specificities.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "label": "Specificity",
+        "min": 1,
+        "fixedCode": "Questionable",
+        "mustSupport": true,
+        "binding": {
+          "strength": "extensible",
+          "valueSet": "http://fhir.nmdp.org/terminology/fhir/ValueSet/hla-immunoassay-interpretation-specificity"
+        }
+      },
+      {
+        "id": "Observation.component:assay-interpretation-questionable-specificities.value[x]",
+        "path": "Observation.component.value[x]",
+        "label": "Questionable Specificities",
+        "type": [
+          {
+            "code": "string"
+          }
+        ],
+        "mustSupport": true
+      }
+    ]
+  }
+}

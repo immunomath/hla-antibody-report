@@ -1,0 +1,14 @@
+- name: Index
+  filename: Index.page.md
+- name: HLA Immunoassay Kit
+  filename: HLA-Immunoassay-Kit.page.md
+- name: HLA Immunoassay Bead Observation
+  filename: HLA-Immunoassay-Bead-Observation.page.md
+- name: HLA Immunoassay Bead Interpretation
+  filename: HLA-Immunoassay-Bead-Interpretation.page.md
+- name: HLA Antibody Diagnostic Report
+  filename: HLA-Antibody-Diagnostic-Report.page.md
+- name: HLA Immunoassay Working Sample
+  filename: HLA-Immunoassay-Working-Sample.page.md
+- name: 'HLA Antibody Report Bundle '
+  filename: HLA-Antibody-Report-Bundle.page.md

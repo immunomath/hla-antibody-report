@@ -1,0 +1,107 @@
+---
+canonical: https://fhir.nmdp.org/StructureDefinition/HLAAntibodyDiagnosticReportExt
+expand: 2
+---
+
+# {{page-title}}
+
+## Metadata
+
+These are the details for this resource:
+
+<fql output="table">
+	from
+		StructureDefinition
+	where
+		url = %canonical
+	select
+		Name: name,
+		Description: description,
+		Context: context.expression,
+		Canonical_URL: url,
+		Status: status,
+		Version: version
+</fql>
+
+## Context
+
+<fql output="inline">
+	from
+		StructureDefinition
+	where
+		url = %canonical
+	for context select
+		'Context': 'This extension can be used on `'+type+'`: `'+expression+'`'
+</fql>
+
+## Resource content
+
+These are different views on this resource:
+
+<tabs>
+<tab title="Overview">
+	This is the tree view:
+	{{tree, snapshot}}
+</tab>
+<tab title="Detailed view">
+	This is the detailed view:
+	{{dict}}
+</tab>
+<tab title="XML">
+	This is the resource in XML:
+	{{xml}}	
+</tab>
+<tab title="JSON">
+	This is the resource in JSON:
+	{{json}}
+</tab>
+<tab title="Link">
+	{{link}}
+</tab>
+</tabs>
+
+## Terminology Bindings
+
+These are the terminology bindings within this resource:
+
+<fql>
+	from
+    	StructureDefinition
+	where
+    	url = %canonical
+	select
+    	join for differential.element
+      		select {
+				Path: id,
+				join
+				for binding
+				where valueSet.exists()
+				select {
+					Conformance: strength,
+					ValueSet: valueSet}
+        	}
+</fql>
+
+## Constraints
+
+These are the constraints (invariants) defined within this resource:
+
+<fql>
+    from
+		StructureDefinition
+    where
+		url = %canonical
+    select
+		differential.element {
+			Path: id,
+			join constraint {
+				Id: key,
+				Grade: severity,
+				Details: human,
+				Expression: expression
+				}
+			}
+</fql>
+
+
+

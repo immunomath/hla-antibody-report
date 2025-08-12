@@ -1,0 +1,173 @@
+{
+  "resourceType": "StructureDefinition",
+  "language": "English",
+  "url": "https://fhir.nmdp.org/ig/HlaAntibodyReport/StructureDefinition/hla-antibody-diagnostic-report",
+  "version": "0.1.0",
+  "name": "HLAAntibodyDiagnosticReport",
+  "title": "HLA Antibody Diagnostic Report",
+  "status": "draft",
+  "publisher": "NMDP",
+  "contact": [
+    {
+      "name": "David Wroe",
+      "telecom": [
+        {
+          "system": "email",
+          "value": "dwroe@nmdp.org",
+          "use": "work"
+        }
+      ]
+    }
+  ],
+  "description": "HLA Antibody Diagnostic Report \r\n\r\nConsolidated laboratory report on the execution of solid-phase immunoassay \r\nBased on the work of the HAML working group maintained here: https://github.com/immunomath/haml\r\n\r\nHLA based antibody assay results and expert interpretation for a solid-phase-panel analysis.\r\n\r\nThis includes metadata about the solid phase panel and a series of beads.\r\nElements:\r\n\r\nAssay\r\nA solid-phase-panel analysis.\r\nThis includes metadata about the solid phase panel and a series of beads.\r\nModifications/preparations/dilutions were done to a sample to create a working sample.\r\n\r\nElements:\r\n\r\n            assay-id: A unique identifier for this assay.\r\n            assay-date:\r\n            working-sample:\r\n            interpretation:\r\n            interpretation-software: The software which was used for analysis of the solid-phase-panel results.\r\n            interpretation-software-version: The version of the software used for analysis of the solid-phase-panel results.\r\n            positive-serum-id: An identifier of the serum used as a positive control.\r\n            negative-serum-id: An identifier of the serum used as a negative control.\r\n            bead: Individual beads contained within this panel\r\n            Raw-MFI-divider: This constant is used for comparing multiple analysis machines.\r\n            Note: Sometimes these devices systematically have biases on the same sample, and this constant can be used to calibrate raw-MFI across multiple batches.\r\n\r\nAssay Kit\r\n\r\nElements:\r\n\r\n            kit-manufacturer: The company or institution that developed the kit\r\n            kit-description:\r\n            catalog-number: A string identifying the specific kit or that was used in this analysis\r\n            lot-number: A string identifying the specific  lot that was used in this analysis\r\n\r\nAssay Interpretation\r\n\r\nAn Interpretation is where we put the results of an entire assay.\r\nThis includes which antigens/specificities are determined to be positive or negative.\r\n\r\nElements:\r\n\r\n            interpretation-context: “Clinical Interpretation”\r\n            reject-assay: Boolean if the assay was rejected or not.\r\n            reject-reason: Reason for rejecting entire assay\r\n            failure-code: Failure code from assay run\r\n            positive-specificities: HLA GLstring of positively reactive HLA\r\n            questionable-specificities: : HLA GLstring of questionably reactive HLA\r\n            negative-specificities: : HLA GLstring of negatively reactive HLA\r\n\r\nSample and Working Sample\r\nThis represents a sample, most likely of blood, which was drawn from a patient.\r\n\r\nElements:\r\n\r\n            sample-id: A string with a unique identifier for this sample\r\n            sample-datetime: A dateTime which identifies the date and (optionally) the time when a sample was drawn.\r\n            testing-laboratory: A string with a unique identifier for the laboratory where this sample was drawn\r\n            assay: A number of \"assay\" elements specify an analysis performed on this sample\r\n \r\nA working sample is a part of a sample which is subjected to sample preparations and a subsequent solid-phase panel analysis.\r\n\r\nElements:\r\n\r\n            working-sample-id: A unique identifier for this working sample.\r\n            treatment:\r\n            dilution:\r\n            solid-phase-panel:\r\n \r\nA treatment describes a process which was performed on a working sample in preparation for solid phase analysis.\r\n\r\nElements:\r\n\r\n            method: \r\n\r\nA working sample may be diluted in preparation for solid-phase-panel analysis.\r\nThis element describes the ratio and substance used for dilution.\r\n\r\nElements:\r\n\r\n            ratio: This is expected to be a dilution ratio, a floating point number usually between 0 and 1.\r\n            diluent: This is a text description of the diluent substance or buffer\r\n\r\n\r\nBead Result\r\nA single bead within a solid phase panel.\r\nThis bead usually has a specificity, which may be an allele name or a serological specificity.\r\nThe bead result has information about it's corresponding positive and negative control beads.\r\n\r\nElements:\r\n----------\r\n            bead-info: Structure containing details on the specificity and identifiers of an individual bead\r\n            raw-data: Structure containing measured MFI or raw data as measured in the assay.\r\n            converted-data: Structure containing converted MFIs, formulas used, and interpretations of bead-specific results.\r\n            raw-MFI: Actual measured luminescense from assay\r\n            bead-count:  \r\n            formula: transformation appied to raw-MFI value to derive normalized value for clinical decision making\r\n            adjusted-MFI: Derived normalized value for clinical decision making\r\n            bead-interpretation: Bead level interpretation of result\r\n            bead-plausible: Boolean indicator for specific bead\r\n            \r\nBead Interpretation \r\nElements:\r\n----------\r\n            classification-entity: This is the individual or entity who has performed a bead interpretation.\r\n            interpretation-reason: This is the reason a bead has been interpreted. For example, a standard MFI threshold (e.g. 500) was used\r\n            bead-classification: A text Positive/Negative/Borderline/Unspecified classification.\r\n            bead-rank: a numerical bead rank specifying if there was reactivity on this bead.",
+  "purpose": "Immunoassay of a patient to identify presence of reactive levels of non-self antibodies to be used in the determination of adverse reactions in the selection of unrelated donor transplant.",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "DiagnosticReport",
+  "baseDefinition": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-lab",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "DiagnosticReport",
+        "path": "DiagnosticReport",
+        "short": "An HLA Antibody Diagnostic Report - a combination of request information, atomic results and result interpretations",
+        "definition": "The findings and interpretation of diagnostic  tests performed on patients including specimens derived from these. The report includes clinical context such as requesting and provider information, and some mix of atomic results, images, textual and coded interpretations, and formatted representation of diagnostic reports."
+      },
+      {
+        "id": "DiagnosticReport.extension:hLAAntibodyDiagnosticReportExt",
+        "path": "DiagnosticReport.extension",
+        "sliceName": "hLAAntibodyDiagnosticReportExt",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "https://fhir.nmdp.org/StructureDefinition/HLAAntibodyDiagnosticReportExt"
+            ]
+          }
+        ],
+        "isModifier": false
+      },
+      {
+        "id": "DiagnosticReport.identifier.value",
+        "path": "DiagnosticReport.identifier.value",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.encounter",
+        "path": "DiagnosticReport.encounter",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.performer.reference",
+        "path": "DiagnosticReport.performer.reference",
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.resultsInterpreter.reference",
+        "path": "DiagnosticReport.resultsInterpreter.reference",
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.specimen",
+        "path": "DiagnosticReport.specimen",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "pattern",
+              "path": "$this"
+            }
+          ],
+          "rules": "open"
+        },
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.specimen:HLAImmunoassayWorkingSample",
+        "path": "DiagnosticReport.specimen",
+        "sliceName": "HLAImmunoassayWorkingSample",
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.specimen:HLAImmunoassayWorkingSample.reference",
+        "path": "DiagnosticReport.specimen.reference",
+        "label": "HLA Immunoassay Working Sample Reference",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.specimen:HLAImmunoassayWorkingSample.type",
+        "path": "DiagnosticReport.specimen.type",
+        "mustSupport": false
+      },
+      {
+        "id": "DiagnosticReport.specimen:negativeSerum",
+        "path": "DiagnosticReport.specimen",
+        "sliceName": "negativeSerum",
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.specimen:negativeSerum.reference",
+        "path": "DiagnosticReport.specimen.reference",
+        "label": "Negative Serum Reference",
+        "min": 1
+      },
+      {
+        "id": "DiagnosticReport.specimen:positiveSerum",
+        "path": "DiagnosticReport.specimen",
+        "sliceName": "positiveSerum",
+        "label": "Positive Serum",
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.specimen:positiveSerum.reference",
+        "path": "DiagnosticReport.specimen.reference",
+        "label": "HLA Positive Serum Reference",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.result",
+        "path": "DiagnosticReport.result",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "aggregation": [
+              "contained",
+              "referenced",
+              "bundled"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DiagnosticReport.result.reference",
+        "path": "DiagnosticReport.result.reference",
+        "label": "Immunoassay Observation",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.result.display",
+        "path": "DiagnosticReport.result.display",
+        "fixedString": "HLA Immunoassay Bead Observation"
+      },
+      {
+        "id": "DiagnosticReport.imagingStudy",
+        "path": "DiagnosticReport.imagingStudy",
+        "max": "0"
+      },
+      {
+        "id": "DiagnosticReport.media",
+        "path": "DiagnosticReport.media",
+        "max": "0"
+      }
+    ]
+  }
+}

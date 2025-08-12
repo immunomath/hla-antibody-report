@@ -1,0 +1,37 @@
+{
+  "resourceType": "ValueSet",
+  "url": "https://terminology.nmdp.org/fhir/ValueSet/hla-immunoassay-bead-control-type-vs",
+  "title": "HLA Immunoassay Bead Control Type Value Set",
+  "status": "draft",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "email",
+          "value": "dwroe@nmdp.org"
+        }
+      ],
+      "name": "David Wroe"
+    }
+  ],
+  "compose": {
+    "include": [
+      {
+        "system": "https://terminology.nmdp.org/fhir/CodeSystem/hla-immunoassay-codes",
+        "concept": [
+          {
+            "code": "TBD",
+            "display": "To be determined"
+          }
+        ]
+      }
+    ]
+  },
+  "description": "HLA Immunoassay bead control type",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>HLA Immunoassay Bead Control Type Value Set</h2><tt>https://terminology.nmdp.org/fhir/ValueSet/hla-immunoassay-bead-control-type-vs</tt><p>HLA Immunoassay bead control type</p></div>"
+  },
+  "name": "Hla_immunoassay_bead_control_type_vs",
+  "publisher": "NMDP"
+}

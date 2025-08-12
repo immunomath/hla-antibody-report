@@ -1,0 +1,49 @@
+{
+  "resourceType": "ValueSet",
+  "url": "https://terminology.nmdp.org/fhir/ValueSet/hla-immunoassay-bead-observation-classification-vs",
+  "title": "HLA Immunoassay Bead Observation Classification Value Set",
+  "status": "draft",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "email",
+          "value": "dwroe@nmdp.org"
+        }
+      ],
+      "name": "David Wroe"
+    }
+  ],
+  "compose": {
+    "include": [
+      {
+        "system": "https://terminology.nmdp.org/fhir/CodeSystem/hla-immunoassay-codes",
+        "concept": [
+          {
+            "code": "Positive",
+            "display": "Positive reactivity result based on adjusted MFI score"
+          },
+          {
+            "code": "Negative",
+            "display": "Negative reactivity result based on adjusted MFI score"
+          },
+          {
+            "code": "Borderline",
+            "display": "Borderline reactivity result based on adjusted MFI score"
+          },
+          {
+            "code": "Undetermined",
+            "display": "Undetermined reactivity result based on adjusted MFI score"
+          }
+        ]
+      }
+    ]
+  },
+  "description": "HLA Immunoassay bead observation classification value set",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>HLA Immunoassay Bead Observation Classification Value Set</h2><tt>https://terminology.nmdp.org/fhir/ValueSet/hla-immunoassay-bead-observation-classification-vs</tt><p>HLA Immunoassay bead observation classification value set</p></div>"
+  },
+  "name": "Hla_immunoassay_bead_observation_classification_vs",
+  "publisher": "NMDP"
+}

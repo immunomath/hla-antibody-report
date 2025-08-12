@@ -1,0 +1,41 @@
+{
+  "resourceType": "ValueSet",
+  "url": "https://terminology.nmdp.org/fhir/ValueSet/hla-immunoassay-interpretation-specificity-vs",
+  "title": "HLA Immunoassay interpretation Specificity",
+  "status": "draft",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "email"
+        }
+      ]
+    }
+  ],
+  "compose": {
+    "include": [
+      {
+        "system": "https://terminology.nmdp.org/fhir/CodeSystem/hla-immunoassay-codes",
+        "concept": [
+          {
+            "code": "Negative",
+            "display": "Negative"
+          },
+          {
+            "code": "Positive",
+            "display": "Positive"
+          },
+          {
+            "code": "Questionable",
+            "display": "Questionable"
+          }
+        ]
+      }
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>HLA Immunoassay interpretation Specificity</h2><tt>https://terminology.nmdp.org/fhir/ValueSet/hla-immunoassay-interpretation-specificity-vs</tt></div>"
+  },
+  "name": "Hla_immunoassay_interpretation_specificity_vs"
+}

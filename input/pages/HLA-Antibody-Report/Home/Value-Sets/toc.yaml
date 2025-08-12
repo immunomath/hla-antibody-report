@@ -1,0 +1,20 @@
+- name: Index
+  filename: Index.page.md
+- name: HLA Immunoassay Bead Observation Classification Value Set
+  filename: HLA-Immunoassay-Bead-Observation-Classification-Value-Set.page.md
+- name: HLA Immunoassay Bead Type Value Set
+  filename: HLA-Immunoassay-Bead-Type-Value-Set.page.md
+- name: HLA Immunoassay Bead Control Type Value Set
+  filename: HLA-Immunoassay-Bead-Control-Type-Value-Set.page.md
+- name: HLA Immunoassay Bead Observation Rank Value Set
+  filename: HLA-Immunoassay-Bead-Observation-Rank-Value-Set.page.md
+- name: HLA Immunoassay Bead Observation Plausibility Set
+  filename: HLA-Immunoassay-Bead-Observation-Plausibility-Set.page.md
+- name: HLA Immunoassay Rejection Reason Value Set
+  filename: HLA-Immunoassay-Rejection-Reason-Value-Set.page.md
+- name: HLA Immunoassay Failure Code Value Set
+  filename: HLA-Immunoassay-Failure-Code-Value-Set.page.md
+- name: HLA Immunoassay Sample Treatment Value Set
+  filename: HLA-Immunoassay-Sample-Treatment-Value-Set.page.md
+- name: HLA Immunoassay Sample Diluent Value Set
+  filename: HLA-Immunoassay-Sample-Diluent-Value-Set.page.md

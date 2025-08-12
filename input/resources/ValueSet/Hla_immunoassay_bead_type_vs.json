@@ -1,0 +1,37 @@
+{
+  "resourceType": "ValueSet",
+  "url": "https://terminology.nmdp.org/fhir/ValueSet/hla-immunoassay-bead-type-vs",
+  "title": "HLA Immunoassay Bead Type Value Set",
+  "status": "draft",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "email",
+          "value": "dwroe@nmdp.org"
+        }
+      ],
+      "name": "David Wroe"
+    }
+  ],
+  "compose": {
+    "include": [
+      {
+        "system": "https://terminology.nmdp.org/fhir/CodeSystem/hla-immunoassay-codes",
+        "concept": [
+          {
+            "code": "Fluorescence",
+            "display": "Fluorescence"
+          }
+        ]
+      }
+    ]
+  },
+  "description": "HLA Immunoassay bead type value set",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>HLA Immunoassay Bead Type Value Set</h2><tt>https://terminology.nmdp.org/fhir/ValueSet/hla-immunoassay-bead-type-vs</tt><p>HLA Immunoassay bead type value set</p></div>"
+  },
+  "name": "Hla_immunoassay_bead_type_vs",
+  "publisher": "NMDP"
+}

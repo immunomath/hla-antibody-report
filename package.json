@@ -1,0 +1,14 @@
+{
+  "name": "hla.antibody.report",
+  "version": "0.1.2",
+  "description": "HLA Antibody Report project\r\n- R4 / US Core\r\n- Define resource bundle\r\n- Create resource extensions ",
+  "author": "NMDP",
+  "fhirVersions": [
+    "4.0.1"
+  ],
+  "jurisdiction": "urn:iso:std:iso:3166#US",
+  "dependencies": {
+    "hl7.fhir.r4.core": "4.0.1",
+    "hl7.fhir.us.core": "8.0.0"
+  }
+}

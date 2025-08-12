@@ -1,0 +1,251 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "https://fhir.nmdp.org/ig/HLAAntibodyReport/StructureDefinition/HLAAntibodyReportBundle",
+  "name": "HLAAntibodyReportBundle",
+  "title": "HLAAntibodyReportBundle",
+  "status": "draft",
+  "publisher": "NMDP",
+  "contact": [
+    {
+      "name": "David Wroe",
+      "telecom": [
+        {
+          "system": "email",
+          "value": "dwroe@nmndp.org",
+          "use": "old"
+        }
+      ]
+    }
+  ],
+  "purpose": "Collection of resources to describe a complete HLA antibody report",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Bundle",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Bundle",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Bundle.type",
+        "path": "Bundle.type",
+        "fixedCode": "transaction"
+      },
+      {
+        "id": "Bundle.entry",
+        "path": "Bundle.entry",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "$this"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Bundle.entry:Patient",
+        "path": "Bundle.entry",
+        "sliceName": "Patient",
+        "label": "Patient",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Bundle.entry:Patient.resource",
+        "path": "Bundle.entry.resource",
+        "label": "Patient Resource",
+        "short": "Patient Resource information",
+        "type": [
+          {
+            "code": "Resource",
+            "profile": [
+              "https://www.hl7.org/fhir/us/core/STU8/StructureDefinition-us-core-patient"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Bundle.entry:Laboratory",
+        "path": "Bundle.entry",
+        "sliceName": "Laboratory",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Bundle.entry:Laboratory.resource",
+        "path": "Bundle.entry.resource",
+        "label": "Laboratory Resource",
+        "short": "Laboratory information",
+        "min": 1,
+        "type": [
+          {
+            "code": "Resource",
+            "profile": [
+              "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Bundle.entry:WorkingSample",
+        "path": "Bundle.entry",
+        "sliceName": "WorkingSample",
+        "label": "Working Sample",
+        "short": "Working Sample information",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Bundle.entry:WorkingSample.resource",
+        "path": "Bundle.entry.resource",
+        "label": "Working Sample Resource",
+        "short": "Working sample resource information",
+        "min": 1,
+        "type": [
+          {
+            "code": "Resource",
+            "profile": [
+              "https://fhir.nmdp.org/ig/HlaAntibodyReport/StructureDefinition/hla-immuno-assay-working-sample"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Bundle.entry:ImmunoassayKit",
+        "path": "Bundle.entry",
+        "sliceName": "ImmunoassayKit",
+        "label": "Immunoassay Kit",
+        "short": "Immunoassay kit information",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Bundle.entry:ImmunoassayKit.resource",
+        "path": "Bundle.entry.resource",
+        "short": "Immunoassay kit resource information",
+        "min": 1,
+        "type": [
+          {
+            "code": "Resource",
+            "profile": [
+              "https://fhir.nmdp.org/ig/HlaAntibodyReport/StructureDefinition/hla-immuno-assay-kit"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Bundle.entry:ImmunoassayInterpretation",
+        "path": "Bundle.entry",
+        "sliceName": "ImmunoassayInterpretation",
+        "label": "Immunoassay Interpretation",
+        "short": "Immunoassay interpretation information",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Bundle.entry:ImmunoassayInterpretation.resource",
+        "path": "Bundle.entry.resource",
+        "label": "Immunoassay Interpretation Resource",
+        "short": "Immunoassay Interpretation Resource",
+        "min": 1,
+        "type": [
+          {
+            "code": "Resource",
+            "profile": [
+              "https://fhir.nmdp.org/ig/HlaAntibodyReport/StructureDefinition/hla-immuno-assay-interpretation"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Bundle.entry:ImmunoassayBeadObservation",
+        "path": "Bundle.entry",
+        "sliceName": "ImmunoassayBeadObservation",
+        "label": "Immunoassay Bead Observation",
+        "short": "Immunoassay bead observation",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Bundle.entry:ImmunoassayBeadObservation.resource",
+        "path": "Bundle.entry.resource",
+        "label": "Immunoassay Bead Observation Resource",
+        "short": "Immunoassay bead observation resource",
+        "min": 1,
+        "type": [
+          {
+            "code": "Resource",
+            "profile": [
+              "https://fhir.nmdp.org/ig/HlaAntibodyReport/StructureDefinition/hla-immunoassay-bead-observation"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Bundle.entry:HLAAntibodyDiagnosticReport",
+        "path": "Bundle.entry",
+        "sliceName": "HLAAntibodyDiagnosticReport",
+        "label": "HLA Antibody Diagnostic Report",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Bundle.entry:HLAAntibodyDiagnosticReport.resource",
+        "path": "Bundle.entry.resource",
+        "label": "HLA Antibody Diagnostic Report Resource",
+        "short": "HLA Antibody Diagnostic Report Resource",
+        "min": 1,
+        "type": [
+          {
+            "code": "Resource",
+            "profile": [
+              "https://fhir.nmdp.org/ig/HlaAntibodyReport/StructureDefinition/hla-antibody-diagnostic-report"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Bundle.entry:HLAAntibodyDiagnosticReport.resource.category",
+        "path": "Bundle.entry.resource.category",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "$this"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Bundle.entry:HLAAntibodyDiagnosticReport.resource.specimen",
+        "path": "Bundle.entry.resource.specimen",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "pattern",
+              "path": "$this"
+            }
+          ],
+          "rules": "open"
+        }
+      }
+    ]
+  }
+}
