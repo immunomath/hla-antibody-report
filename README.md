@@ -28,6 +28,7 @@ HAML Repository: [HAML HLA Antibody Markup Language](https://github.com/immunoma
 
 ## FHIR Repository Structure
 
+```
 hla-antibody-report
 ├── input
 │   ├── fsh/              # FHIR Shorthand (FSH) source files (if used)
@@ -49,7 +50,7 @@ hla-antibody-report
 ├── README.md            # Repository README
 ├── LICENSE              # Project license
 └── TRADEMARKS           # Project trademark attributions
-
+```
 
 ---
 
